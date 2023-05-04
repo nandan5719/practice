@@ -1,0 +1,250 @@
+nandan@DESKTOP-L2H9P2F MINGW64 ~
+$ cd my_project_git
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git commit -m "file name added"
+On branch master
+nothing to commit, working tree clean
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ vi name.txt
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ cat name.txt
+nandan kumar
+Deepak Prasad
+nk
+IIT Guwahati
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git add .
+warning: in the working copy of 'name.txt', LF will be replaced by CRLF the next time Git touch
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   name.txt
+
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git restore --staged name.txt
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   name.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git add name.txt
+warning: in the working copy of 'name.txt', LF will be replaced by CRLF the next time Git touch
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   name.txt
+
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git commit -m "NK"
+[master 17c3dc8] NK
+ 1 file changed, 4 insertions(+)
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git log
+commit 17c3dc84f4c47f412edb6096e1399a8fb27ce8ed (HEAD -> master)
+Author: nandan5719 <k.nandan@iitg.ac.in>
+Date:   Thu May 4 03:11:52 2023 +0530
+
+    NK
+
+commit 5b56ce84ea6e58da8f1a3a3c2ede437d2888ff5c
+Author: nandan5719 <k.nandan@iitg.ac.in>
+Date:   Thu May 4 02:54:55 2023 +0530
+
+    new file added
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ rm -rf name.txt
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    name.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git log
+commit 17c3dc84f4c47f412edb6096e1399a8fb27ce8ed (HEAD -> master)
+Author: nandan5719 <k.nandan@iitg.ac.in>
+Date:   Thu May 4 03:11:52 2023 +0530
+
+    NK
+
+commit 5b56ce84ea6e58da8f1a3a3c2ede437d2888ff5c
+Author: nandan5719 <k.nandan@iitg.ac.in>
+Date:   Thu May 4 02:54:55 2023 +0530
+
+    new file added
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git add .
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git commit -m "name.txt deleted"
+[master df2fb62] name.txt deleted
+ 1 file changed, 4 deletions(-)
+ delete mode 100644 name.txt
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git log
+commit df2fb6213f43f7d98b0b1013a230a1310884105e (HEAD -> master)
+Author: nandan5719 <k.nandan@iitg.ac.in>
+Date:   Thu May 4 03:16:24 2023 +0530
+
+    name.txt deleted
+
+commit 17c3dc84f4c47f412edb6096e1399a8fb27ce8ed
+Author: nandan5719 <k.nandan@iitg.ac.in>
+Date:   Thu May 4 03:11:52 2023 +0530
+
+    NK
+
+commit 5b56ce84ea6e58da8f1a3a3c2ede437d2888ff5c
+Author: nandan5719 <k.nandan@iitg.ac.in>
+Date:   Thu May 4 02:54:55 2023 +0530
+
+    new file added
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ ^C
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git reset 5b56ce84ea6e58da8f1a3a3c2ede437d2888ff5c
+Unstaged changes after reset:
+D       name.txt
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git log
+commit 5b56ce84ea6e58da8f1a3a3c2ede437d2888ff5c (HEAD -> master)
+Author: nandan5719 <k.nandan@iitg.ac.in>
+Date:   Thu May 4 02:54:55 2023 +0530
+
+    new file added
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    name.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git stash
+Saved working directory and index state WIP on master: 5b56ce8 new file added
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git restore name.txt
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git add . name.txt
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git log
+commit 5b56ce84ea6e58da8f1a3a3c2ede437d2888ff5c (HEAD -> master)
+Author: nandan5719 <k.nandan@iitg.ac.in>
+Date:   Thu May 4 02:54:55 2023 +0530
+
+    new file added
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git stash
+No local changes to save
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git stash clear
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git remote add https://github.com/nandan5719/practice
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git add .
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git remote -v
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git remote add origin https://github.com/nandan5719/practice
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git push origin master
+
+
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git remote -v
+origin  https://github.com/nandan5719/practice (fetch)
+origin  https://github.com/nandan5719/practice (push)
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git push origin master
+fatal: helper error (-1): User cancelled dialog.
+error: unable to read askpass response from 'C:/Program Files/Git/mingw64/bin/git-askpass.exe'
+Password for 'https://github.com':
+remote: No anonymous write access.
+fatal: Authentication failed for 'https://github.com/nandan5719/practice/'
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$ git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 210 bytes | 210.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/nandan5719/practice
+ * [new branch]      master -> master
+
+nandan@DESKTOP-L2H9P2F MINGW64 ~/my_project_git (master)
+$
